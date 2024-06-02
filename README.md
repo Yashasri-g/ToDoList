@@ -8,3 +8,5 @@ Users should be able to :
    - Mark tasks as completed or uncompleted
 # Local Storage
 Tasks should be stored locally so that they are retained even if the user closes the browser.
+
+To have a look at the to do list [click here](https://yashasri-g.github.io/ToDoList/).
