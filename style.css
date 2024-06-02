@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden; /* Prevent scrollbars due to the video */
+    position: relative; /* Needed for stacking z-index */
+}
+
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the video is behind other content */
+    overflow: hidden;
+}
+
+#video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    filter: blur(2px);
+    object-fit: cover; /* Ensure the video covers the entire container */
+    
+    
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.5 ); /* Adjust the opacity here (0.9 for 90%) */
+    padding: 20px; /* Add padding for better visibility */
+    border-radius: 10px; /* Add border radius for a rounded appearance */
+    color: white; /* Set the font color to white */
+}
+
+.btn {
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--blue);
+    border: none;
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    color: white;
+}
+
+/* Todo Container */
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 2rem;
+    background: var(--white);
+    padding: 3rem;
+    height: 50%;
+    width: 60%;
+    box-shadow: 0 1rem 3rem 1rem rgba(0, 23, 71, 0.15);
+    max-width: 30rem;
+    color: white;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    height: 3rem;
+    text-align: center;
+    color: white;
+}
+
+.input {
+    position: relative;
+    display: flex;
+}
+
+.input-field {
+    width: 100%;
+    border: 0.06rem solid rgba(255, 255, 255, 0.7); /* Set border color to white with reduced opacity */
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    font-size: 1rem;
+    color: white; /* Set text color to white */
+    background-color: rgba(255, 255, 255, 0.2); /* Set background color to white with reduced opacity */
+}
+
+input[type="text"]::placeholder {
+    color: white; /* Set placeholder color to white */
+}
+
+.todo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.3rem;
+}
+
+#todoList p {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: white; /* Set text color to white */
+}
+
+#todoList .disabled {
+    color: #8f98a8;
+}
+
+.disabled {
+    display: flex;
+    text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "\2713";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.7rem;
+    text-align: center;
+    border: 0.06rem solid var(--grey-border);
+    border-radius: 50%;
+    color: transparent;
+}
+
+input[type="checkbox"]:checked::before {
+    color: white;
+    background-color: var(--green);
+    border: 0.06rem solid var(--green);
+    border-radius: 50%;
+}
+
+.counter {
+    border: 0.06rem solid var(--grey-light);
+}
+
+.footer {
+    display: flex;
+    gap: 1.8rem;
+    background-color: var(--white);
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.scroll {
+    height: 15rem;
+    scrollbar-width: thin;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 0.5rem;
+}
+
+.scroll::-webkit-scrollbar-track {
+    display: none;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white; /* Set icon color to white */
+}
+
+.delete-btn i {
+    font-size: 1.5rem;
+    color: white; /* Set icon color to white */
+}
+
+/* Brighter Colors */
+.todo-container,
+.btn,
+.delete-btn {
+    transition: background-color 0.3s ease;
+}
+
+.todo-container:hover,
+.btn:hover,
+.delete-btn:hover {
+    background-color: rgba(255,255, 255, 0.8);
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    /* Adjust styles for extra small devices */
+    .content {
+        padding: 10px;
+    }
+    .todo {
+        width: 90%;
+        padding: 2rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Adjust styles for small devices */
+    .content {
+        padding: 15px;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Adjust styles for medium devices */
+    .content {
+        padding: 20px;
+    }
+    .btn {
+        font-size: 1.1rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Adjust styles for large devices */
+    .content {
+        padding: 25px;
+    }
+    .btn {
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Adjust styles for extra large devices */
+    .content {
+        padding: 30px;
+    }
+    .btn {
+        font-size: 1.3rem;
+    }
+}
